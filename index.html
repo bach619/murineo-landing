@@ -3,379 +3,457 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Murineo — Carbon Ecosystem Digital Products</title>
-<meta name="description" content="Premium digital products for Web3, Carbon/ESG, AI, and development professionals. Built by the Murineo Carbon Ecosystem team.">
+<title>Murineo — Premium Digital Products for Web3, AI & Carbon</title>
+<meta name="description" content="Premium digital products for Web3, AI, Carbon/ESG, and development professionals. Built by the team behind Borneo's largest carbon ecosystem.">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --green: #00c853;
-  --green-dark: #00a844;
-  --earth: #2e7d32;
-  --bg: #0a0a0f;
-  --bg2: #111118;
-  --bg3: #1a1a24;
-  --text: #e8e8ed;
-  --text2: #8888a0;
-  --accent: #00c853;
-  --border: #222233;
-  --radius: 12px;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+:root{
+  --green:#00ff88;
+  --green-dim:#00cc6a;
+  --green-dark:#009955;
+  --bg:#06060e;
+  --bg2:#0b0b18;
+  --bg3:#111125;
+  --bg4:#18182e;
+  --text:#e8e8f0;
+  --text2:#8888aa;
+  --text3:#555577;
+  --border:#1a1a35;
+  --glow:rgba(0,255,136,0.08);
+  --glow2:rgba(0,255,136,0.04);
+  --radius:16px;
+  --radius-sm:10px;
 }
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
-body {
-  font-family: 'Inter', -apple-system, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+a{text-decoration:none;color:inherit}
+
+/* Nav */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:16px 0;
+  background:rgba(6,6,14,0.8);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{border-bottom-color:var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:1.3rem;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,var(--green),#66ffbb);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{color:var(--text2);font-size:0.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{
+  background:var(--green);color:#000;padding:8px 20px;
+  border-radius:100px;font-weight:600;font-size:0.85rem;
+  transition:all .2s;
+}
+.nav-cta:hover{box-shadow:0 0 30px var(--glow);transform:translateY(-1px)}
 
 /* Hero */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;position:relative;overflow:hidden;
+  padding-top:80px;
 }
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(ellipse at center, rgba(0,200,83,0.03) 0%, transparent 70%);
-  animation: pulse 8s ease-in-out infinite;
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 800px 500px at 30% 40%, rgba(0,255,136,0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 400px at 70% 60%, rgba(0,200,255,0.03) 0%, transparent 70%),
+    radial-gradient(ellipse 300px 300px at 50% 30%, rgba(0,255,136,0.02) 0%, transparent 70%);
 }
-@keyframes pulse {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
+.hero-logo{
+  font-size:4.5rem;font-weight:900;letter-spacing:-0.04em;
+  background:linear-gradient(135deg,var(--green) 0%,#66ffbb 40%,var(--green) 70%,#00ff99 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:24px;position:relative;line-height:1.1;
 }
-.hero-logo {
-  font-size: 3.5rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #00c853, #69f0ae, #00c853);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 0.5em;
-  position: relative;
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(0,255,136,0.08);border:1px solid rgba(0,255,136,0.15);
+  padding:6px 16px;border-radius:100px;font-size:0.8rem;font-weight:500;
+  color:var(--green);margin-bottom:24px;position:relative;
 }
-.hero-tagline {
-  font-size: 1.2rem;
-  color: var(--text2);
-  max-width: 640px;
-  margin: 0 auto 2em;
-  position: relative;
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero-tagline{
+  font-size:1.15rem;color:var(--text2);max-width:600px;
+  margin:0 auto 32px;position:relative;line-height:1.7;
 }
-.hero-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--green);
-  color: #000;
-  padding: 16px 40px;
-  border-radius: 100px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  text-decoration: none;
-  transition: all 0.3s;
-  position: relative;
+.hero-actions{display:flex;gap:16px;justify-content:center;position:relative;flex-wrap:wrap}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--green);color:#000;padding:16px 36px;
+  border-radius:100px;font-weight:600;font-size:1rem;
+  transition:all .3s;border:none;cursor:pointer;
 }
-.hero-cta:hover { background: #69f0ae; transform: translateY(-2px); box-shadow: 0 8px 40px rgba(0,200,83,0.3); }
-.hero-stats {
-  display: flex;
-  gap: 48px;
-  margin-top: 4em;
-  position: relative;
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(0,255,136,0.25)}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:var(--text);padding:16px 36px;
+  border-radius:100px;font-weight:500;font-size:1rem;
+  border:1px solid var(--border);transition:all .3s;
 }
-.stat { text-align: center; }
-.stat-num { font-size: 2rem; font-weight: 700; color: var(--green); }
-.stat-label { font-size: 0.85rem; color: var(--text2); margin-top: 4px; }
+.btn-secondary:hover{border-color:var(--text2);transform:translateY(-2px)}
+.hero-stats{
+  display:flex;gap:56px;margin-top:64px;position:relative;
+}
+.stat{text-align:center}
+.stat-num{font-size:2.2rem;font-weight:800;background:linear-gradient(135deg,var(--green),#66ffbb);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-label{font-size:0.8rem;color:var(--text3);margin-top:4px;text-transform:uppercase;letter-spacing:0.05em}
 
-/* Categories */
-.categories { padding: 80px 0; }
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.5em;
-  text-align: center;
+/* Section */
+.section{padding:100px 0;position:relative}
+.section-alt{background:var(--bg2)}
+.section-title{font-size:2.2rem;font-weight:800;margin-bottom:12px;text-align:center;letter-spacing:-0.02em}
+.section-sub{color:var(--text2);text-align:center;max-width:560px;margin:0 auto 56px;font-size:1rem}
+
+/* Category Tabs */
+.cat-tabs{display:flex;justify-content:center;gap:8px;margin-bottom:48px;flex-wrap:wrap}
+.cat-tab{
+  padding:10px 24px;border-radius:100px;font-size:0.85rem;font-weight:500;
+  border:1px solid var(--border);cursor:pointer;transition:all .3s;
+  background:transparent;color:var(--text2);
 }
-.section-sub {
-  color: var(--text2);
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 3em;
-}
-.category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
-.category-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 32px;
-  transition: all 0.3s;
-}
-.category-card:hover { border-color: var(--green); transform: translateY(-4px); box-shadow: 0 12px 48px rgba(0,200,83,0.08); }
-.category-icon { font-size: 2rem; margin-bottom: 12px; }
-.category-name { font-size: 1.3rem; font-weight: 600; margin-bottom: 8px; }
-.category-desc { color: var(--text2); font-size: 0.9rem; margin-bottom: 16px; }
-.category-count { color: var(--green); font-size: 0.85rem; font-weight: 500; }
+.cat-tab.active,.cat-tab:hover{border-color:var(--green);color:var(--green);background:rgba(0,255,136,0.06)}
 
 /* Products */
-.products { padding: 80px 0; background: var(--bg2); }
-.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-.product-card {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px;
-  transition: all 0.3s;
-  display: flex;
-  flex-direction: column;
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.product-card{
+  background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);
+  padding:28px;transition:all .4s cubic-bezier(0.16,1,0.3,1);
+  display:flex;flex-direction:column;position:relative;overflow:hidden;
 }
-.product-card:hover { border-color: var(--green); transform: translateY(-2px); }
-.product-title { font-size: 1rem; font-weight: 600; margin-bottom: 8px; line-height: 1.4; }
-.product-desc { color: var(--text2); font-size: 0.85rem; margin-bottom: 16px; flex: 1; }
-.product-footer { display: flex; justify-content: space-between; align-items: center; }
-.product-price {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--green);
+.product-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--green),transparent);
+  opacity:0;transition:opacity .4s;
 }
-.product-link {
-  background: var(--green);
-  color: #000;
-  padding: 8px 20px;
-  border-radius: 100px;
-  font-weight: 600;
-  font-size: 0.85rem;
-  text-decoration: none;
-  transition: all 0.2s;
+.product-card:hover{border-color:rgba(0,255,136,0.3);transform:translateY(-6px)}
+.product-card:hover::before{opacity:1}
+.product-card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+.product-icon{
+  width:44px;height:44px;border-radius:var(--radius-sm);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;flex-shrink:0;
 }
-.product-link:hover { background: #69f0ae; }
-.product-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
-.tag {
-  background: rgba(0,200,83,0.1);
-  color: var(--green);
-  padding: 2px 10px;
-  border-radius: 100px;
-  font-size: 0.75rem;
-  font-weight: 500;
+.product-price-tag{
+  font-size:1.4rem;font-weight:800;color:var(--green);
+  letter-spacing:-0.02em;
 }
+.product-title{font-size:1.05rem;font-weight:600;margin-bottom:10px;line-height:1.4}
+.product-desc{color:var(--text2);font-size:0.85rem;margin-bottom:20px;flex:1;line-height:1.6}
+.product-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.tag{
+  background:rgba(0,255,136,0.06);color:var(--green);
+  padding:3px 12px;border-radius:100px;font-size:0.7rem;font-weight:500;
+  border:1px solid rgba(0,255,136,0.1);
+}
+.product-link{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  background:var(--green);color:#000;padding:10px 24px;
+  border-radius:100px;font-weight:600;font-size:0.85rem;
+  transition:all .3s;width:100%;text-align:center;
+}
+.product-link:hover{background:#66ffbb;transform:translateY(-1px)}
 
 /* About */
-.about { padding: 80px 0; text-align: center; }
-.about-text {
-  max-width: 720px;
-  margin: 0 auto;
-  color: var(--text2);
-  font-size: 1.05rem;
-  line-height: 1.8;
+.about-section{text-align:center;padding:100px 0;position:relative}
+.about-section::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:80%;max-width:600px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--border),transparent);
 }
-.about-text strong { color: var(--text); }
+.about-text{max-width:700px;margin:0 auto;color:var(--text2);font-size:1rem;line-height:1.8}
+.about-text strong{color:var(--text);font-weight:600}
+.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.about-item{padding:24px;background:var(--bg3);border-radius:var(--radius);border:1px solid var(--border)}
+.about-item-icon{font-size:1.5rem;margin-bottom:12px}
+.about-item-title{font-weight:600;margin-bottom:6px;font-size:0.95rem}
+.about-item-desc{color:var(--text2);font-size:0.85rem;line-height:1.5}
+
+/* Store CTA */
+.store-cta{
+  text-align:center;padding:80px 0;position:relative;
+  background:radial-gradient(ellipse at center,rgba(0,255,136,0.03) 0%,transparent 70%);
+}
+.store-cta h2{font-size:2rem;font-weight:800;margin-bottom:12px}
+.store-cta p{color:var(--text2);margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto}
 
 /* Footer */
-.footer {
-  border-top: 1px solid var(--border);
-  padding: 32px 0;
-  text-align: center;
-  color: var(--text2);
-  font-size: 0.85rem;
+.footer{
+  border-top:1px solid var(--border);padding:40px 0;
+  text-align:center;color:var(--text3);font-size:0.85rem;
 }
-.footer a { color: var(--green); text-decoration: none; }
-.footer a:hover { text-decoration: underline; }
+.footer a{color:var(--green);transition:color .2s}
+.footer a:hover{color:#66ffbb}
+.footer-social{display:flex;justify-content:center;gap:24px;margin-bottom:20px}
+.footer-social a{color:var(--text2);transition:color .2s;font-size:0.9rem}
+.footer-social a:hover{color:var(--text)}
+
+/* Glow */
+.glow{position:fixed;pointer-events:none;border-radius:50%;filter:blur(100px);z-index:-1}
+.glow-1{width:600px;height:600px;background:rgba(0,255,136,0.02);top:-200px;left:-200px}
+.glow-2{width:500px;height:500px;background:rgba(0,200,255,0.015);bottom:-200px;right:-200px}
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--text2); }
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--text3)}
 
-@media (max-width: 768px) {
-  .hero-logo { font-size: 2.2rem; }
-  .hero-stats { flex-direction: column; gap: 24px; }
-  .category-grid { grid-template-columns: 1fr; }
-  .product-grid { grid-template-columns: 1fr; }
+@media(max-width:768px){
+  .hero-logo{font-size:2.8rem}
+  .hero-tagline{font-size:1rem}
+  .hero-stats{gap:32px;flex-wrap:wrap;justify-content:center}
+  .stat-num{font-size:1.8rem}
+  .nav-links{display:none}
+  .section-title{font-size:1.7rem}
+  .product-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+  .cat-tabs{overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start;padding-bottom:8px}
+  .cat-tab{white-space:nowrap;flex-shrink:0}
 }
+@media(min-width:769px){.nav-mobile{display:none}}
 </style>
 </head>
 <body>
 
+<div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <div class="nav-logo">MURINEO</div>
+    <div class="nav-links">
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="https://murineo.gumroad.com/" target="_blank">Store</a>
+      <a class="nav-cta" href="#products">Browse All</a>
+    </div>
+  </div>
+</nav>
+
 <section class="hero">
+  <div class="hero-bg"></div>
   <div class="container">
+    <div class="hero-badge"><span class="hero-badge-dot"></span> 6 Premium Products — Live Now</div>
     <div class="hero-logo">MURINEO</div>
     <p class="hero-tagline">
-      Premium digital products for Web3, Carbon/ESG, AI, and development professionals.<br>
-      Built by the team behind Borneo's largest carbon ecosystem data platform.
+      Premium digital tools for Web3 development, AI engineering,<br>
+      carbon markets, and cybersecurity.<br>
+      Built by the team behind Borneo's largest carbon data platform.
     </p>
-    <a class="hero-cta" href="https://murineo.gumroad.com/" target="_blank">
-      Browse All Products →
-    </a>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#products">Explore Products →</a>
+      <a class="btn-secondary" href="https://murineo.gumroad.com/" target="_blank">View Store ↗</a>
+    </div>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Products</div></div>
-      <div class="stat"><div class="stat-num">6</div><div class="stat-label">Categories</div></div>
-      <div class="stat"><div class="stat-num">$544</div><div class="stat-label">Total Value</div></div>
+      <div class="stat"><div class="stat-num">6</div><div class="stat-label">Live Products</div></div>
+      <div class="stat"><div class="stat-num">$185</div><div class="stat-label">Bundle Value</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Categories</div></div>
     </div>
   </div>
 </section>
 
-<section class="categories">
-  <div class="container">
-    <h2 class="section-title">Product Categories</h2>
-    <p class="section-sub">From smart contract audits to carbon project development — tools for the new economy</p>
-    <div class="category-grid">
-      <div class="category-card">
-        <div class="category-icon">🤖</div>
-        <div class="category-name">AI & Prompt Engineering</div>
-        <div class="category-desc">ChatGPT prompt packs, AI agent blueprints, Midjourney libraries, GPTs bundles, and automation templates.</div>
-        <div class="category-count">5 products</div>
-      </div>
-      <div class="category-card">
-        <div class="category-icon">⛓️</div>
-        <div class="category-name">Web3 & Smart Contracts</div>
-        <div class="category-desc">Foundry testing masterclass, DeFi security checklists, NFT launch kits, gas optimization guides, and dApp frontend kits.</div>
-        <div class="category-count">5 products</div>
-      </div>
-      <div class="category-card">
-        <div class="category-icon">🌿</div>
-        <div class="category-name">Carbon & ESG</div>
-        <div class="category-desc">Carbon credit financial models, ESG reporting automation, project developer toolkits, and Indonesia carbon market guides.</div>
-        <div class="category-count">4 products</div>
-      </div>
-      <div class="category-card">
-        <div class="category-icon">🛠️</div>
-        <div class="category-name">Coding Tools</div>
-        <div class="category-desc">Python automation bundles, API development cookbooks, and production-ready database design patterns.</div>
-        <div class="category-count">3 products</div>
-      </div>
-      <div class="category-card">
-        <div class="category-icon">📊</div>
-        <div class="category-name">Business</div>
-        <div class="category-desc">Startup financial models, remote team playbooks, and Notion-based Project Management OS.</div>
-        <div class="category-count">3 products</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="products">
+<section class="section section-alt" id="products">
   <div class="container">
     <h2 class="section-title">Featured Products</h2>
-    <p class="section-sub">Production-tested tools used by developers and organizations worldwide</p>
-    <div class="product-grid">
-      <div class="product-card">
+    <p class="section-sub">Production-tested tools used by developers, auditors, and organizations worldwide</p>
+
+    <div class="cat-tabs">
+      <button class="cat-tab active" data-filter="all">All</button>
+      <button class="cat-tab" data-filter="web3">Web3</button>
+      <button class="cat-tab" data-filter="ai">AI</button>
+      <button class="cat-tab" data-filter="security">Security</button>
+      <button class="cat-tab" data-filter="dev">Dev Tools</button>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+
+      <!-- 1. ChatGPT Mega Prompt Pack -->
+      <div class="product-card" data-category="ai">
+        <div class="product-card-header">
+          <div class="product-icon" style="background:rgba(0,255,136,0.08)">🧠</div>
+          <span class="product-price-tag">$19</span>
+        </div>
+        <div class="product-tags"><span class="tag">chatgpt</span><span class="tag">prompts</span><span class="tag">productivity</span></div>
+        <div class="product-title">ChatGPT Mega Prompt Pack</div>
+        <div class="product-desc">230 battle-tested, copy-paste prompts across 8 categories — business, marketing, coding, content, finance, learning, health, and productivity. Save hours crafting prompts.</div>
+        <a class="product-link" href="https://murineo.gumroad.com/l/cskdxs" target="_blank">Buy on Gumroad →</a>
+      </div>
+
+      <!-- 2. AI Agent Blueprint -->
+      <div class="product-card" data-category="ai">
+        <div class="product-card-header">
+          <div class="product-icon" style="background:rgba(0,255,136,0.08)">🤖</div>
+          <span class="product-price-tag">$49</span>
+        </div>
+        <div class="product-tags"><span class="tag">agents</span><span class="tag">python</span><span class="tag">rag</span></div>
+        <div class="product-title">AI Agent Blueprint</div>
+        <div class="product-desc">Build production-grade multi-agent systems with orchestrators, vector/episodic/graph memory, RAG pipelines, and deployment blueprints. Zero to deployed agent in one guide.</div>
+        <a class="product-link" href="https://murineo.gumroad.com/l/yixlyd" target="_blank">Buy on Gumroad →</a>
+      </div>
+
+      <!-- 3. Midjourney Prompt Library -->
+      <div class="product-card" data-category="ai">
+        <div class="product-card-header">
+          <div class="product-icon" style="background:rgba(0,255,136,0.08)">🎨</div>
+          <span class="product-price-tag">$17</span>
+        </div>
+        <div class="product-tags"><span class="tag">midjourney</span><span class="tag">design</span><span class="tag">creative</span></div>
+        <div class="product-title">Midjourney Prompt Library</div>
+        <div class="product-desc">500+ curated Midjourney v6 prompts organized by style, subject, and mood. From architectural visualization to character design — the largest prompt library for creators.</div>
+        <a class="product-link" href="https://murineo.gumroad.com/l/yzgxdf" target="_blank">Buy on Gumroad →</a>
+      </div>
+
+      <!-- 4. Foundry Testing Masterclass -->
+      <div class="product-card" data-category="web3">
+        <div class="product-card-header">
+          <div class="product-icon" style="background:rgba(0,255,136,0.08)">⛓️</div>
+          <span class="product-price-tag">$39</span>
+        </div>
         <div class="product-tags"><span class="tag">solidity</span><span class="tag">foundry</span><span class="tag">testing</span></div>
         <div class="product-title">Foundry Testing Masterclass</div>
-        <div class="product-desc">Go from Foundry basics to production-grade test suites — unit, fuzz, invariant, differential, and fork testing with CI/CD.</div>
-        <div class="product-footer">
-          <span class="product-price">$29</span>
-          <a class="product-link" href="https://murineo.gumroad.com/l/ltlsyw" target="_blank">Buy →</a>
-        </div>
+        <div class="product-desc">Go from Foundry basics to production-grade test suites — unit, fuzz, invariant, differential, and fork testing. With CI/CD integration, coverage reports, and gas optimization patterns.</div>
+        <a class="product-link" href="https://murineo.gumroad.com/l/ltlsyw" target="_blank">Buy on Gumroad →</a>
       </div>
 
-      <div class="product-card">
+      <!-- 5. DeFi Security Checklist -->
+      <div class="product-card" data-category="security">
+        <div class="product-card-header">
+          <div class="product-icon" style="background:rgba(0,255,136,0.08)">🛡️</div>
+          <span class="product-price-tag">$27</span>
+        </div>
         <div class="product-tags"><span class="tag">defi</span><span class="tag">security</span><span class="tag">audit</span></div>
         <div class="product-title">DeFi Security Checklist</div>
-        <div class="product-desc">100+ audit-grade security checkpoints across 11 attack categories — catch vulnerabilities before auditors do.</div>
-        <div class="product-footer">
-          <span class="product-price">$27</span>
-          <a class="product-link" href="https://murineo.gumroad.com/l/gonql" target="_blank">Buy →</a>
-        </div>
+        <div class="product-desc">100+ audit-grade security checkpoints across 11 attack categories — reentrancy, oracle manipulation, flash loans, access control, and more. Catch vulnerabilities before auditors do.</div>
+        <a class="product-link" href="https://murineo.gumroad.com/l/gonql" target="_blank">Buy on Gumroad →</a>
       </div>
 
-      <div class="product-card">
-        <div class="product-tags"><span class="tag">carbon</span><span class="tag">finance</span><span class="tag">model</span></div>
-        <div class="product-title">Carbon Credit ROI Calculator</div>
-        <div class="product-desc">Institutional-grade financial model for carbon project valuation — 30-year DCF, Monte Carlo, sensitivity analysis.</div>
-        <div class="product-footer">
-          <span class="product-price">$24</span>
-          <a class="product-link" href="https://murineo.gumroad.com/l/carbon-roi" target="_blank">Buy →</a>
+      <!-- 6. Web3 Frontend Starter Kit -->
+      <div class="product-card" data-category="web3">
+        <div class="product-card-header">
+          <div class="product-icon" style="background:rgba(0,255,136,0.08)">⚛️</div>
+          <span class="product-price-tag">$34</span>
         </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-tags"><span class="tag">ai</span><span class="tag">agents</span><span class="tag">python</span></div>
-        <div class="product-title">AI Agent Blueprint</div>
-        <div class="product-desc">Build production-grade multi-agent systems with orchestrators, memory architectures, and deployment blueprints.</div>
-        <div class="product-footer">
-          <span class="product-price">$47</span>
-          <a class="product-link" href="https://murineo.gumroad.com/l/yixlyd" target="_blank">Buy →</a>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-tags"><span class="tag">chatgpt</span><span class="tag">prompts</span></div>
-        <div class="product-title">ChatGPT Mega Prompt Pack</div>
-        <div class="product-desc">230 battle-tested ChatGPT prompts across business, marketing, coding, content, finance, and more.</div>
-        <div class="product-footer">
-          <span class="product-price">$19</span>
-          <a class="product-link" href="https://murineo.gumroad.com/l/cskdxs" target="_blank">Buy →</a>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-tags"><span class="tag">audit</span><span class="tag">solidity</span><span class="tag">report</span></div>
-        <div class="product-title">Smart Contract Audit Report Template</div>
-        <div class="product-desc">Professional auditor toolkit — comprehensive template used by professional smart contract auditors.</div>
-        <div class="product-footer">
-          <span class="product-price">$39</span>
-          <a class="product-link" href="https://murineo.gumroad.com/l/mcvdne" target="_blank">Buy →</a>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-tags"><span class="tag">carbon</span><span class="tag">trading</span><span class="tag">esg</span></div>
-        <div class="product-title">Carbon Trading Playbook</div>
-        <div class="product-desc">From compliance to profit — comprehensive 2026 edition guide to carbon markets and trading strategies.</div>
-        <div class="product-footer">
-          <span class="product-price">$99</span>
-          <a class="product-link" href="https://murineo.gumroad.com/l/xlejz" target="_blank">Buy →</a>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-tags"><span class="tag">web3</span><span class="tag">react</span><span class="tag">typescript</span></div>
+        <div class="product-tags"><span class="tag">react</span><span class="tag">web3</span><span class="tag">typescript</span></div>
         <div class="product-title">Web3 Frontend Starter Kit</div>
-        <div class="product-desc">45+ production-ready React/TypeScript components for wallet connection, contracts, transactions, and IPFS.</div>
-        <div class="product-footer">
-          <span class="product-price">$34</span>
-          <a class="product-link" href="https://murineo.gumroad.com/l/wjzjua" target="_blank">Buy →</a>
-        </div>
+        <div class="product-desc">45+ production-ready React/TypeScript components for wallet connection, contract interaction, transaction management, IPFS storage, and The Graph integration. wagmi v2 + viem.</div>
+        <a class="product-link" href="https://murineo.gumroad.com/l/wjzjua" target="_blank">Buy on Gumroad →</a>
       </div>
+
     </div>
-    <div style="text-align:center; margin-top: 40px;">
-      <a class="hero-cta" href="https://murineo.gumroad.com/" target="_blank" style="display:inline-flex;">
-        View All 20 Products →
-      </a>
+
+    <div style="text-align:center;margin-top:40px">
+      <a class="btn-secondary" href="https://murineo.gumroad.com/" target="_blank" style="display:inline-flex">View All Products on Gumroad ↗</a>
     </div>
   </div>
 </section>
 
-<section class="about">
+<section class="about-section" id="about">
   <div class="container">
     <h2 class="section-title">Built for the Carbon Ecosystem</h2>
     <p class="about-text">
-      <strong>Murineo</strong> is the single source of truth for carbon project data from Borneo.
-      Every product in our store was built by the team operating Indonesia's most advanced
-      carbon ecosystem data platform — with 105 AI agents, 19 microservices, and
-      real-time monitoring of 2.3+ million hectares of tropical forest.
+      <strong>Murineo</strong> is the single source of truth for carbon project data from Borneo —<br>
+      Indonesia's most advanced carbon ecosystem data platform. Every product in our store<br>
+      was built by the team operating 105 AI agents across 19 microservices, monitoring<br>
+      2.3+ million hectares of tropical forest in real-time.
       <br><br>
-      We don't sell theory. We sell tools we use every day.
+      <strong>We don't sell theory. We sell tools we use every day.</strong>
     </p>
+    <div class="about-grid">
+      <div class="about-item">
+        <div class="about-item-icon">🌿</div>
+        <div class="about-item-title">Real-World Proven</div>
+        <div class="about-item-desc">Every tool is battle-tested in our own production carbon ecosystem platform.</div>
+      </div>
+      <div class="about-item">
+        <div class="about-item-icon">🔬</div>
+        <div class="about-item-title">Expert Crafted</div>
+        <div class="about-item-desc">Built by a team of 100+ agents spanning Web3, AI, cybersecurity, and environmental science.</div>
+      </div>
+      <div class="about-item">
+        <div class="about-item-icon">🚀</div>
+        <div class="about-item-title">Instant Access</div>
+        <div class="about-item-desc">Digital downloads via Gumroad — purchase once, access forever, with free updates.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="store-cta">
+  <div class="container">
+    <h2>Ready to Level Up?</h2>
+    <p>Browse the full Murineo product collection on Gumroad — 20+ premium digital products for the new economy.</p>
+    <a class="btn-primary" href="https://murineo.gumroad.com/" target="_blank">Visit Murineo Store →</a>
   </div>
 </section>
 
 <footer class="footer">
   <div class="container">
-    <p>© 2026 Murineo Carbon Ecosystem — <a href="https://murineo.gumroad.com/" target="_blank">Gumroad Store</a></p>
-    <p style="margin-top:8px; font-size:0.8rem;">Single Source of Truth for Carbon Project Origin Data from Borneo</p>
+    <div class="footer-logo nav-logo" style="font-size:1.2rem;margin-bottom:16px">MURINEO</div>
+    <div class="footer-social">
+      <a href="https://murineo.gumroad.com/" target="_blank">Gumroad</a>
+      <a href="https://github.com/bach619" target="_blank">GitHub</a>
+    </div>
+    <p>© 2026 Murineo Carbon Ecosystem — Single Source of Truth for Carbon Project Origin Data from Borneo</p>
   </div>
 </footer>
 
+<script>
+// Nav scroll effect
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20)})
+
+// Category filtering
+const tabs=document.querySelectorAll('.cat-tab');
+const cards=document.querySelectorAll('.product-card');
+tabs.forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    tabs.forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    const filter=tab.dataset.filter;
+    cards.forEach(card=>{
+      if(filter==='all'||card.dataset.category===filter){
+        card.style.display='flex';
+        card.style.opacity='0';
+        card.style.transform='translateY(10px)';
+        requestAnimationFrame(()=>{
+          card.style.transition='all .4s cubic-bezier(0.16,1,0.3,1)';
+          card.style.opacity='1';
+          card.style.transform='translateY(0)';
+        });
+      }else{
+        card.style.transition='all .3s';
+        card.style.opacity='0';
+        card.style.transform='translateY(10px)';
+        setTimeout(()=>{card.style.display='none'},300);
+      }
+    });
+  });
+});
+// Show all on load with animation
+cards.forEach((c,i)=>{c.style.opacity='0';c.style.transform='translateY(20px)'})
+requestAnimationFrame(()=>{
+  cards.forEach((c,i)=>{
+    setTimeout(()=>{
+      c.style.transition='all .6s cubic-bezier(0.16,1,0.3,1)';
+      c.style.opacity='1';c.style.transform='translateY(0)'
+    },i*100)
+  })
+})
+</script>
 </body>
 </html>
